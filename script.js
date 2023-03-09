@@ -1,3 +1,5 @@
+const libTable = document.querySelector('.lib-table');
+
 const myLibary = [];
 
 function Book(title, author, pages, read) {
@@ -10,12 +12,14 @@ function Book(title, author, pages, read) {
   // };
 }
 const bookOne = new Book('The Hobbit', 'J.R.R Tolkein', '295', 'have not read');
-const bookTwo = new Book('Riven Rock', 'T.C. Boyle', '362', 'have read');
+// const bookTwo = new Book('Riven Rock', 'T.C. Boyle', '362', 'have read');
 
-function addBook(a, b) {
-  myLibary.push(a, b);
+function addBook(a) {
+  myLibary.push(a);
 }
 
-addBook(bookOne, bookTwo);
+addBook(bookOne);
+
+libTable.textContent = myLibary;
 
 // console.log(bookOne.info());
