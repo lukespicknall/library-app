@@ -1,5 +1,4 @@
 * {
-  background-color: rgb(230, 212, 245);
   margin: 0;
   padding: 0;
 }
@@ -16,7 +15,17 @@
   height: 100vh;
   display: grid;
   grid-template: 1fr 5fr / 1fr 5fr;
-  grid-template-areas: 
+  grid-template-areas:
+    "side-bar content"
+    "side-bar content";
+}
 
-  ;
+.content {
+  grid-area: content;
+  background-color: rgb(226, 43, 217);
+}
+
+.side-bar {
+  grid-area: side-bar;
+  background-color: rgb(170, 170, 231);
 }
