@@ -20,6 +20,10 @@ function addBook(a) {
 
 addBook(bookOne);
 
+// myLibary.forEach(a => {
+//   libTable.textContent = myLibary[a];
+// });
+
 libTable.textContent = myLibary;
 
 // console.log(bookOne.info());
