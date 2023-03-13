@@ -1,4 +1,5 @@
 const libTable = document.querySelector('.lib-table');
+const tBody = document.querySelector('tbody');
 
 const myLibary = [];
 
@@ -24,6 +25,18 @@ addBook(bookOne);
 //   libTable.textContent = myLibary[a];
 // });
 
-libTable.textContent = myLibary;
+for (let i = 0; i < myLibary.length; i += 1) {
+  
+}
+
+
+
+
+
+
+
+
+
+libTable.appendChild = myLibary;
 
 // console.log(bookOne.info());
