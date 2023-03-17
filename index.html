@@ -12,6 +12,8 @@
     <div class="box">
       <div class="side-bar">
         <div class="side-logo">OK</div>
+
+        <!-- FORM -->
         <form class="side-form" action="" method="post">
           <div class="infield">
             <label for="book-title">Title</label>
@@ -28,16 +30,20 @@
           <div class="infield-r">
             <label for="have-read">Read?</label>
             <label for="yes">Yes</label>
-            <input type="radio" name="have-read" id="yes" value="Yes"/>
+            <input type="radio" name="have-read" id="have-read" value="Yes"/>
             <label for="no">No</label>
-            <input type="radio" name="have-read" id="no" value="Yes"/>
+            <input type="radio" name="have-read" id="have-read" value="No"/>
           </div>
           <div class="infield">
             <input type="submit" name="submit" id="submit" value="Log it!" />
           </div>
         </form>
       </div>
-      <div class="header"></div>
+
+      <!-- HEADER -->
+      <div class="header">
+        <button class="add-btn">+ Add Book</button>
+      </div>
       <table class="lib-table">
         <thead>
           <td>Title</td>
