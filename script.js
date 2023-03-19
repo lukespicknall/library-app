@@ -17,30 +17,41 @@ const myLibary = Object.values(Book); // creates array of Book objects/values
 function displayBook() {
   // puts Book{} data from myLibrary[] into libTable
   tBody.innerHTML = ''; // clears current tbody to avoid repeats
-  for (let i = 0; i < myLibary.length; i += 1) { // loop throu []
+  for (let i = 0; i < myLibary.length; i += 1) {
+    // loop throu []
     const row = document.createElement('tr'); // create new tr for new Book
     tBody.appendChild(row); // add that tr to tbody in libTable
     const titleCell = document.createElement('td'); //
     const authorCell = document.createElement('td'); //
     const pagesCell = document.createElement('td'); // create new cells for Book data
     const readCell = document.createElement('td'); //
+    readCell.className = 'read-cell';
+    const deleteCell = document.createElement('td');
+    deleteCell.className = 'delete-cell';
     titleCell.textContent = myLibary[i].title; //
     authorCell.textContent = myLibary[i].author; //
-    pagesCell.textContent = myLibary[i].pages; // assing object value to cell content
+    pagesCell.textContent = myLibary[i].pages; // assign object value to cell content
     row.appendChild(titleCell); //
     row.appendChild(authorCell); //
     row.appendChild(pagesCell); // add those cells to the new row
-    if (myLibary[i].read = 'no') {
-      const unChecked = document.createElement('input');
-      unChecked.setAttribute('type', 'checkbox');
-      readCell.appendChild(unChecked);
-    } else if (myLibary[i].read = 'yes') {
-      const checkedUp = document.createElement('input');
-      checkedUp.setAttribute('type', 'checkbox');
-      document.querySelector('checkedbox').checked = 'true';
-      readCell.appendChild(checkedUp);
+    const readCheck = document.createElement('input');
+    readCheck.setAttribute('type', 'checkbox');
+    readCheck.className = 'read-check';
+    if (myLibary[i].read === 'no') {
+      readCell.appendChild(readCheck);
+    } else if (myLibary[i].read === 'yes') {
+      readCheck.checked = 'true';
+      readCell.appendChild(readCheck);
     }
     row.appendChild(readCell);
+    const deleteBtn = document.createElement('button');
+    const deleteImg = document.createElement('img');
+    deleteBtn.className = 'delete-btn';
+    deleteImg.src = 'images/trash-can-outline.png';
+    deleteImg.className = 'delete-img';
+    deleteBtn.appendChild(deleteImg);
+    deleteCell.appendChild(deleteBtn);
+    row.appendChild(deleteCell);
   }
 }
 
@@ -54,7 +65,7 @@ function addBook() {
   displayBook();
 }
 
-addBtn.addEventListener('click', (e) => {
+addBtn.addEventListener('click', () => {
   sideForm.reset(); // clears form inputs from previous submission
   sideForm.style.display = 'block'; // makes form appear
 });

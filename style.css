@@ -52,6 +52,25 @@
   color: white;
 }
 
+.read-cell {
+  text-align: center;
+}
+
+.delete-cell {
+  text-align: center;
+}
+.delete-img {
+  max-width: 100%;
+  border: none;
+}
+
+.delete-btn {
+  max-width: 30%;
+  border: none;
+  background: transparent;
+}
+
+
 .side-bar {
   grid-area: side-bar;
   display: grid;
