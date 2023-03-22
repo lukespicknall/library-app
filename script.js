@@ -39,9 +39,11 @@ function displayBook() {
     const readCheck = document.createElement('input'); // create an input element
     readCheck.setAttribute('type', 'checkbox'); // make it a checkbox
     readCheck.className = 'read-check'; // give it a class name
-    if (myLibary[i].read === 'no') { // if not read
+    if (myLibary[i].read === 'no') {
+      // if not read
       readCell.appendChild(readCheck); // add the default unchecked box to the cell
-    } else if (myLibary[i].read === 'yes') { // if read
+    } else if (myLibary[i].read === 'yes') {
+      // if read
       readCheck.checked = 'true'; // make the checkbox checked
       readCell.appendChild(readCheck); // add the checked box to thec cell
     }
@@ -51,6 +53,11 @@ function displayBook() {
     const deleteImg = document.createElement('img'); // create and img element
     deleteBtn.className = 'delete-btn'; // give button a class
     deleteImg.src = 'images/trash-can-outline.png'; // set img source
+    //
+    deleteImg.addEventListener('click', () => { // ** IMPORTANT sets delete click event
+      deleteRow([i]); // ** IMPORTANT sets this index instance as the parameter.
+    }); // ** IMPORTANT this is how can delete a specific object from myLibrary[]
+    //
     deleteImg.className = 'delete-img'; // give img element a class
     deleteBtn.appendChild(deleteImg); // add image to button
     deleteCell.appendChild(deleteBtn); // add button to cell
@@ -58,16 +65,10 @@ function displayBook() {
   }
 }
 
-function deleteRow() {
+function deleteRow(index) {
   if (myLibary.length >= 1) {
-    const deleteImg = document.querySelector('.delete-img');
-    deleteImg.addEventListener('click', () => {
-      const row = document.querySelector('.table-row');
-      // alert('hi')
-      // myLibary[this].slice();
-      tBody.removeChild(row);
-      // displayBook();
-    });
+    myLibary.splice(index, 1); // deletes the index imput from myLibrary[]
+    displayBook();
   }
 }
 
@@ -79,7 +80,7 @@ function addBook() {
   const newBook = new Book(title, author, pages, read); // creates new Book object with those values
   myLibary.push(newBook); // pushes that new book object into myLib[]
   displayBook();
-  deleteRow();
+  // deleteRow();
 }
 
 addBtn.addEventListener('click', () => {
