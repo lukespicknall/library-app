@@ -2,6 +2,7 @@
 const tBody = document.querySelector('tbody');
 const addBtn = document.querySelector('.add-btn');
 const sideForm = document.querySelector('.side-form');
+const formOverlay = document.querySelector('.form-overlay');
 
 class Book {
   constructor(title, author, pages, read) {
@@ -85,11 +86,11 @@ function addBook() {
 
 addBtn.addEventListener('click', () => {
   sideForm.reset(); // clears form inputs from previous submission
-  sideForm.style.display = 'block'; // makes form appear
+  formOverlay.style.display = 'flex'; // makes form appear
 });
 
 sideForm.addEventListener('submit', (e) => {
   e.preventDefault(); // stops sumbit from sending data to server by default
   addBook(); // sends data to myLib[]
-  sideForm.style.display = 'none'; // makes form dissapear on submit
+  formOverlay.style.display = 'none'; // makes form dissapear on submit
 });

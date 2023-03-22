@@ -1,3 +1,7 @@
+:root {
+  --my-green: #04aa6d;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -7,22 +11,32 @@
   width: 100vw;
   height: 100vh;
   display: grid;
-  grid-template: 1fr 5fr / 1fr 5fr;
+  grid-template: 1fr 5fr / 1fr;
   grid-template-areas:
-    "side-bar header"
-    "side-bar library";
+    "header"
+    "library";
 }
 
 .header {
   grid-area: header;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-btn {
+  width: clamp(140px, 15%, 500px);
+  height: clamp(50px, 15%, 500px);
+  border: none;
+  background-color: var(--my-green);
+  color: white;
+  font-size: 100%;
+  border-radius: 15px;
 }
 
 .library {
-    grid-area: library;
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
-    padding: 20px 5% 20px 5%;
+  grid-area: library;
+  padding: 20px 5% 20px 5%;
 }
 
 .lib-table {
@@ -35,20 +49,25 @@
   width: 100%;
 }
 
-.lib-table td, .lib-table th {
+.lib-table td,
+.lib-table th {
   border: 1px solid #ddd;
   padding: 8px;
 }
 
-.lib-table tr:nth-child(even){background-color: #f2f2f2;}
+.lib-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
 
-.lib-table tr:hover {background-color: #ddd;}
+.lib-table tr:hover {
+  background-color: #ddd;
+}
 
 .lib-table th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #21b85b;
+  background-color: var(--my-green);
   color: white;
 }
 
@@ -70,34 +89,56 @@
   background: transparent;
 }
 
-
 .side-bar {
   grid-area: side-bar;
   display: grid;
   grid-template-rows: 1fr 5fr;
-  grid-template-areas: 
-  "sidelogo"
-  "sideform";
+  grid-template-areas:
+    "sidelogo"
+    "sideform";
 
   padding: 10px;
   background-color: rgb(170, 170, 231);
 }
 
 .side-logo {
-grid-area: sidelogo;
-display: flex;
-justify-content: center;
-align-items: center;
+  grid-area: sidelogo;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-overlay {
+  position: absolute;
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.329);
+}
+
+.form-card {
+  position: absolute;
+  border: 5px solid #ffff;
+  background-color: var(--my-green);
+  border-radius: 15px;
+  box-shadow: 25px 20px 70px -30px black;
 }
 
 .side-form {
   grid-area: sideform;
-  display: none;
+  margin: 30px;
 }
 
 input {
   padding: 5px;
   margin: 3px 0 0 0;
+  border: white;
+}
+
+label {
+  color: white;
 }
 
 input#have-read {
@@ -117,4 +158,3 @@ input#have-read {
   flex-direction: column;
   margin: 10px 0 10px 0;
 }
-
