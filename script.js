@@ -15,8 +15,8 @@ class Book {
 
 const myLibary = Object.values(Book); // creates array of Book objects/values
 
+// puts Book{} data from myLibrary[] into libTable
 function displayBook() {
-  // puts Book{} data from myLibrary[] into libTable
   tBody.innerHTML = ''; // clears current tbody to avoid repeats
   for (let i = 0; i < myLibary.length; i += 1) {
     // loop throu []
@@ -28,6 +28,7 @@ function displayBook() {
     const pagesCell = document.createElement('td'); // create new cells for Book data
     const readCell = document.createElement('td'); //
     const deleteCell = document.createElement('td'); //
+    pagesCell.className = 'pages-cell';
     readCell.className = 'read-cell';
     deleteCell.className = 'delete-cell';
     titleCell.textContent = myLibary[i].title; //

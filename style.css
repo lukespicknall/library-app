@@ -25,23 +25,24 @@
 }
 
 .add-btn {
-  width: clamp(140px, 15%, 500px);
+  width: clamp(140px, 10%, 500px);
   height: clamp(50px, 15%, 500px);
   border: none;
   background-color: var(--my-green);
   color: white;
-  font-size: 100%;
+  font-size: 150%;
+  font-weight: 800;
   border-radius: 15px;
 }
 
 .library {
   grid-area: library;
-  padding: 20px 5% 20px 5%;
+  padding: 20px 15% 20px 15%;
 }
 
-.lib-table {
+/* .lib-table {
   padding: 10px 50px 0 80px;
-}
+} */
 
 .lib-table {
   font-family: Arial, Helvetica, sans-serif;
@@ -69,6 +70,10 @@
   text-align: left;
   background-color: var(--my-green);
   color: white;
+}
+
+.pages-cell {
+  text-align: center;
 }
 
 .read-cell {
