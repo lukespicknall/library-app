@@ -25,7 +25,7 @@
 }
 
 .add-btn {
-  width: clamp(140px, 10%, 500px);
+  width: clamp(140px, 15%, 500px);
   height: clamp(50px, 15%, 500px);
   border: none;
   background-color: var(--my-green);
@@ -33,6 +33,7 @@
   font-size: 150%;
   font-weight: 800;
   border-radius: 15px;
+  margin: 10px;
 }
 
 .library {
@@ -138,19 +139,21 @@
 
 input {
   padding: 5px;
-  margin: 3px 0 0 0;
+  margin: 0 0 0 0;
   border: white;
 }
 
 label {
   color: white;
+  font-size: 110%;
+  margin-bottom: 5px;
 }
 
-input#have-read {
+/* input#have-read {
   display: flex;
   width: 29px;
   height: 29px;
-}
+} */
 
 .infield-r {
   display: flex;
@@ -158,8 +161,34 @@ input#have-read {
   align-items: flex-start;
 }
 
+.read-opt {
+  display: flex;
+  width: 100%;
+}
+
+.read-opt1{
+  margin-right: 20%;
+}
+
+/* .have-read{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} */
+
 .infield {
   display: flex;
   flex-direction: column;
   margin: 10px 0 10px 0;
+}
+
+input#submit {
+  font-weight: 800;
+  font-size: 100%;
+  border-radius: 15px;
+  color: var(--my-green);
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  margin-top: 10%;
 }

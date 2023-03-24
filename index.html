@@ -27,10 +27,16 @@
           </div>
           <div class="infield-r">
             <label for="have-read">Read?</label>
-            <label for="read">Yes</label>
-            <input type="radio" name="have-read" id="read" value="yes" />
-            <label for="not-read">No</label>
-            <input type="radio" name="have-read" id="not-read" value="no" />
+            <div class="read-opt">
+              <div class="read-opt1">
+                <label for="read">Yes</label>
+                <input type="radio" name="have-read" id="read" value="yes" />
+              </div>
+              <div class="read-opt2">
+                <label for="not-read">No</label>
+                <input type="radio" name="have-read" id="not-read" value="no" />
+              </div>
+            </div>
           </div>
           <div class="infield">
             <input type="submit" name="submit" id="submit" value="Log it!" />
@@ -40,9 +46,7 @@
     </div>
 
     <div class="box">
-      <div class="head-logo">
-        
-      </div>
+      <div class="head-logo"></div>
       <!-- HEADER -->
       <div class="header">
         <button class="add-btn">+ Add Book</button>

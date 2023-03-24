@@ -5,7 +5,7 @@ const sideForm = document.querySelector('.side-form');
 const formOverlay = document.querySelector('.form-overlay');
 
 class Book {
-  constructor(title, author, pages, read) {
+  constructor(title, author, pages, read = false) {
     this.title = title;
     this.author = author;
     this.pages = pages;
@@ -13,7 +13,31 @@ class Book {
   }
 }
 
+// this.read: function () {
+//     if (myLibary[i].read === 'no') {
+//       // if not read
+//       readCell.appendChild(readCheck); // add the default unchecked box to the cell
+//     } else if (myLibary[i].read === 'yes') {
+//       // if read
+//       readCheck.checked = 'true'; // make the checkbox checked
+//       readCell.appendChild(readCheck); // add the checked box to thec cell
+//     }}
+
 const myLibary = Object.values(Book); // creates array of Book objects/values
+
+// function readBook(myLibary)
+// const readCheck = document.createElement('input'); // create an input element
+// readCheck.setAttribute('type', 'checkbox'); // make it a checkbox
+// readCheck.className = 'read-check'; // give it a class name
+// if (myLibary[i].read === 'no') {
+//   // if not read
+//   readCell.appendChild(readCheck); // add the default unchecked box to the cell
+// } else if (myLibary[i].read === 'yes') {
+//   // if read
+//   readCheck.checked = 'true'; // make the checkbox checked
+//   readCell.appendChild(readCheck); // add the checked box to thec cell
+// }
+// row.appendChild(readCell); // add read cell to row
 
 // puts Book{} data from myLibrary[] into libTable
 function displayBook() {
@@ -49,6 +73,14 @@ function displayBook() {
       readCheck.checked = 'true'; // make the checkbox checked
       readCell.appendChild(readCheck); // add the checked box to thec cell
     }
+
+    //
+    readCheck.addEventListener('click', () => {
+      // ** IMPORTANT sets delete click event
+      readBook([i]); // ** IMPORTANT sets this index instance as the parameter.
+    }); // ** IMPORTANT this is how can delete a specific object from myLibrary[]
+    //
+
     row.appendChild(readCell); // add read cell to row
     // Delete Button
     const deleteBtn = document.createElement('button'); // create a button
@@ -56,7 +88,8 @@ function displayBook() {
     deleteBtn.className = 'delete-btn'; // give button a class
     deleteImg.src = 'images/trash-can-outline.png'; // set img source
     //
-    deleteImg.addEventListener('click', () => { // ** IMPORTANT sets delete click event
+    deleteImg.addEventListener('click', () => {
+      // ** IMPORTANT sets delete click event
       deleteRow([i]); // ** IMPORTANT sets this index instance as the parameter.
     }); // ** IMPORTANT this is how can delete a specific object from myLibrary[]
     //
@@ -71,6 +104,14 @@ function deleteRow(index) {
   if (myLibary.length >= 1) {
     myLibary.splice(index, 1); // deletes the index imput from myLibrary[]
     displayBook();
+  }
+}
+
+function readBook() {
+  const checker = document.querySelector('.read-check');
+  if (checker.checked === 'false') {
+    alert('hi');
+    // Book.read = 'no';
   }
 }
 
