@@ -141,6 +141,7 @@ input {
   padding: 5px;
   margin: 0 0 0 0;
   border: white;
+  border-radius: 5px;
 }
 
 label {
@@ -167,9 +168,47 @@ label {
 }
 
 .read-opt1{
+  display: flex;
   margin-right: 20%;
+  gap: 5px;
+  justify-content: center;
 }
 
+.read-opt2{
+  display: flex;
+    gap: 5px;
+  /* margin-right: 20%; */
+}
+
+
+/* * THIS CODE COMES FROM https://moderncss.dev/pure-css-custom-styled-radio-buttons/ */
+input[type=radio] {
+  box-sizing: border-box;
+  appearance: none;
+  font: inherit;
+  color: white;
+  background-color: white;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid currentColor;
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+}
+
+input[type="radio"]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--my-green);
+}
+
+input[type="radio"]:checked::before {
+  transform: scale(1);
+}
 /* .have-read{
   display: flex;
   flex-direction: column;
@@ -189,6 +228,6 @@ input#submit {
   color: var(--my-green);
   background-color: white;
   width: 100%;
-  height: 100%;
   margin-top: 10%;
+  padding: 5%;
 }
