@@ -13,31 +13,7 @@ class Book {
   }
 }
 
-// this.read: function () {
-//     if (myLibary[i].read === 'no') {
-//       // if not read
-//       readCell.appendChild(readCheck); // add the default unchecked box to the cell
-//     } else if (myLibary[i].read === 'yes') {
-//       // if read
-//       readCheck.checked = 'true'; // make the checkbox checked
-//       readCell.appendChild(readCheck); // add the checked box to thec cell
-//     }}
-
 const myLibary = Object.values(Book); // creates array of Book objects/values
-
-// function readBook(myLibary)
-// const readCheck = document.createElement('input'); // create an input element
-// readCheck.setAttribute('type', 'checkbox'); // make it a checkbox
-// readCheck.className = 'read-check'; // give it a class name
-// if (myLibary[i].read === 'no') {
-//   // if not read
-//   readCell.appendChild(readCheck); // add the default unchecked box to the cell
-// } else if (myLibary[i].read === 'yes') {
-//   // if read
-//   readCheck.checked = 'true'; // make the checkbox checked
-//   readCell.appendChild(readCheck); // add the checked box to thec cell
-// }
-// row.appendChild(readCell); // add read cell to row
 
 // puts Book{} data from myLibrary[] into libTable
 function displayBook() {
@@ -62,13 +38,14 @@ function displayBook() {
     row.appendChild(titleCell); //
     row.appendChild(authorCell); // add those cells to the new row
     row.appendChild(pagesCell); //
+
     // Read Checkbox
     const readCheck = document.createElement('input'); // create an input element
     readCheck.setAttribute('type', 'checkbox'); // make it a checkbox
     readCheck.className = 'read-check'; // give it a class name
-    if (myLibary[i].read === 'no' || myLibary[i].read === 'null') {
+    if (myLibary[i].read === 'no') {
       // if not read
-      readCheck.checked = 'false';
+      // readCheck.checked = 'false';
       readCell.appendChild(readCheck); // add the default unchecked box to the cell
     } else if (myLibary[i].read === 'yes') {
       // if read
@@ -80,10 +57,11 @@ function displayBook() {
     readCheck.addEventListener('click', () => {
       // ** IMPORTANT sets read click event
       readBook([i]); // ** IMPORTANT sets this index instance as the parameter.
-    }); // ** IMPORTANT this is how can delete a specific object from myLibrary[]
+    }); // ** IMPORTANT this is how to change read status on a specific object from myLibrary[]
     //
 
     row.appendChild(readCell); // add read cell to row
+
     // Delete Button
     const deleteBtn = document.createElement('button'); // create a button
     const deleteImg = document.createElement('img'); // create and img element
@@ -109,11 +87,12 @@ function deleteRow(index) {
   }
 }
 
-function readBook() {
-  const checker = document.querySelector('.read-check');
-  if (checker.checked === 'false') {
-    alert('hi');
-    // Book.read = 'no';
+function readBook(i) { // runsfunction on specific index assigned to object when created
+  const checker = document.querySelector('.read-check'); // looks at readCheck checkbox created in displayBook()
+  if (checker.checked === false) { // if unchecked after click
+    myLibary[i].read = 'no'; // set objects read value to match
+  } else if (checker.checked === true) { // if checked acter click
+    myLibary[i].read = 'yes'; // set objects read value to match
   }
 }
 
