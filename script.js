@@ -15,6 +15,18 @@ class Book {
 
 const myLibary = Object.values(Book); // creates array of Book objects/values
 
+// runsfunction on specific index assigned to object when created
+function readBook(i) {
+  const checker = document.querySelector('.read-check'); // looks at readCheck checkbox created in displayBook()
+  if (checker.checked === false) {
+    // if unchecked after click
+    myLibary[i].read = 'no'; // set objects read value to match
+  } else if (checker.checked === true) {
+    // if checked acter click
+    myLibary[i].read = 'yes'; // set objects read value to match
+  }
+}
+
 // puts Book{} data from myLibrary[] into libTable
 function displayBook() {
   tBody.innerHTML = ''; // clears current tbody to avoid repeats
@@ -84,15 +96,6 @@ function deleteRow(index) {
   if (myLibary.length >= 1) {
     myLibary.splice(index, 1); // deletes the index imput from myLibrary[]
     displayBook();
-  }
-}
-
-function readBook(i) { // runsfunction on specific index assigned to object when created
-  const checker = document.querySelector('.read-check'); // looks at readCheck checkbox created in displayBook()
-  if (checker.checked === false) { // if unchecked after click
-    myLibary[i].read = 'no'; // set objects read value to match
-  } else if (checker.checked === true) { // if checked acter click
-    myLibary[i].read = 'yes'; // set objects read value to match
   }
 }
 
