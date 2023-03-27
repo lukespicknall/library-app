@@ -46,6 +46,7 @@ function displayBook() {
     // loop throu []
     const row = document.createElement('tr'); // create new tr for new Book
     row.className = 'table-row';
+    row.setAttribute('data-id', [i]);
     tBody.appendChild(row); // add that tr to tbody in libTable
     const titleCell = document.createElement('td'); //
     const authorCell = document.createElement('td'); //
@@ -65,8 +66,9 @@ function displayBook() {
     const readCheck = document.createElement('input'); // create an input element
     readCheck.setAttribute('type', 'checkbox'); // make it a checkbox
     readCheck.className = 'read-check'; // give it a class name
-    if (myLibary[i].read === 'no') {
+    if (myLibary[i].read === 'no' || myLibary[i].read === 'null') {
       // if not read
+      readCheck.checked = 'false';
       readCell.appendChild(readCheck); // add the default unchecked box to the cell
     } else if (myLibary[i].read === 'yes') {
       // if read
@@ -76,7 +78,7 @@ function displayBook() {
 
     //
     readCheck.addEventListener('click', () => {
-      // ** IMPORTANT sets delete click event
+      // ** IMPORTANT sets read click event
       readBook([i]); // ** IMPORTANT sets this index instance as the parameter.
     }); // ** IMPORTANT this is how can delete a specific object from myLibrary[]
     //
