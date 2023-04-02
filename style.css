@@ -5,6 +5,7 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .box {
@@ -35,6 +36,8 @@
   border-radius: 15px;
   margin: 10px;
 }
+
+/* LIBRARY & TABLE STYLE */
 
 .library {
   grid-area: library;
@@ -78,11 +81,14 @@ border-style: none;
   text-align: center;
 }
 
-.delete-cell {
+td.delete-cell {
   text-align: center;
+  padding: 0;
 }
+
 .delete-img {
   max-width: 100%;
+  min-width: 100%;
   border: none;
 }
 
@@ -92,24 +98,7 @@ border-style: none;
   background: transparent;
 }
 
-.side-bar {
-  grid-area: side-bar;
-  display: grid;
-  grid-template-rows: 1fr 5fr;
-  grid-template-areas:
-    "sidelogo"
-    "sideform";
-
-  padding: 10px;
-  background-color: rgb(170, 170, 231);
-}
-
-.side-logo {
-  grid-area: sidelogo;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+/* FORM STLYE */
 
 .form-overlay {
   position: absolute;
@@ -145,13 +134,13 @@ label {
   color: white;
   font-size: 110%;
   margin-bottom: 5px;
+  font-weight: bolder
 }
 
-/* input#have-read {
-  display: flex;
-  width: 29px;
-  height: 29px;
-} */
+.read-opt1 > label,
+.read-opt2 > label {
+  font-weight: 100;
+}
 
 .infield-r {
   display: flex;
@@ -173,10 +162,8 @@ label {
 
 .read-opt2{
   display: flex;
-    gap: 5px;
-  /* margin-right: 20%; */
+  gap: 5px;
 }
-
 
 /* * THIS CODE COMES FROM https://moderncss.dev/pure-css-custom-styled-radio-buttons/ */
 input[type=radio] {
@@ -206,11 +193,7 @@ input[type="radio"]::before {
 input[type="radio"]:checked::before {
   transform: scale(1);
 }
-/* .have-read{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-} */
+/**/
 
 .infield {
   display: flex;
