@@ -65,6 +65,22 @@ function displayBook() {
   }
 }
 
+// clears form and hides it if user clicks outside of form when form is visible
+function clickOut() {
+  if (formOverlay.style.display === 'flex') {
+    // if form is visible
+    formOverlay.addEventListener('click', (e) => {
+      // click listener on formOverlay
+      const clickSpot = e.target; // make clickSpot = the event target
+      if (clickSpot.className === 'form-overlay') {
+        // if click happened on formOverlay, i.e. outisde of the form
+        sideForm.reset(); // reset the form
+        formOverlay.style.display = 'none'; // hide it
+      }
+    });
+  }
+}
+
 // creates new {Book}, adds it to myLibrary[], displays updated myLibrary[]
 function addBook() {
   const title = document.querySelector('#book-title').value; //
@@ -130,6 +146,7 @@ clickDelete();
 addBtn.addEventListener('click', () => {
   sideForm.reset(); // clears form inputs from previous submission
   formOverlay.style.display = 'flex'; // makes form appear
+  clickOut();
 });
 
 // passes form data to addBook() and hides form when Submit is clicked

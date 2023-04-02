@@ -23,7 +23,7 @@
           </div>
           <div class="infield">
             <label for="page-count">Page Count</label>
-            <input type="text" name="page-count" id="page-count" min="1" title="How many pages?"/>
+            <input type="text" name="page-count" id="page-count"  required pattern="\d+" title="How many pages? Must be a number."/>
           </div>
           <div class="infield-r">
             <label for="have-read">Read?</label>
@@ -53,7 +53,7 @@
       </div>
       <div class="library">
         <table class="lib-table">
-          <thead>
+          <thead class="head-row">
             <th style="width: 40%">Title</th>
             <th style="width: 30%">Author</th>
             <th style="width: 10%">Pages</th>
