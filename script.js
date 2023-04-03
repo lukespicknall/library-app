@@ -146,6 +146,7 @@ clickDelete();
 addBtn.addEventListener('click', () => {
   sideForm.reset(); // clears form inputs from previous submission
   formOverlay.style.display = 'flex'; // makes form appear
+  formOverlay.classList.add('form-overlay-vis');
   clickOut();
 });
 

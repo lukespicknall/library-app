@@ -35,6 +35,11 @@
   font-weight: 800;
   border-radius: 15px;
   margin: 10px;
+  transition: .1s;
+}
+
+.add-btn:hover {
+  scale: 1.1;
 }
 
 /* LIBRARY & TABLE STYLE */
@@ -103,11 +108,18 @@ td.delete-cell {
 .form-overlay {
   position: absolute;
   display: none;
+  opacity: 0;
   width: 100vw;
   height: 100vh;
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.329);
+  transition: all 2s
+}
+
+.form-overlay-vis {
+  opacity: 1;
+  transition: all 2s;
 }
 
 .form-card {
@@ -116,11 +128,13 @@ td.delete-cell {
   background-color: var(--my-green);
   border-radius: 15px;
   box-shadow: 25px 20px 70px -30px black;
+      transition: 1s;
 }
 
 .side-form {
   grid-area: sideform;
   margin: 30px;
+      transition: 1s;
 }
 
 input {
