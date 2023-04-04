@@ -104,23 +104,45 @@ td.delete-cell {
 }
 
 /* FORM STLYE */
-
+/* This form-overlay transition code documented below it*/
 .form-overlay {
   position: absolute;
-  display: none;
-  opacity: 0;
+  /* display: none; */
+  /* height: 100vh; */
   width: 100vw;
-  height: 100vh;
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.329);
-  transition: all 2s
+
+ /* Hide the element content, while height = 0 */
+    overflow: hidden;
+    height: 0vh; /* start hiegh @ 0 */
+    opacity: 0; /* start opacity @ 0 */
+    transition: height 0ms 400ms, opacity 400ms 0ms;
+  /* height delays to the time it takes opacity to fade */ 
 }
 
 .form-overlay-vis {
-  opacity: 1;
-  transition: all 2s;
+    height: 100vh; /* bring height to 100vh */
+    opacity: 1; /* set opacity to 0 (full) */
+    transition: height 0ms 0ms, opacity 275ms 0ms; 
+  /* height change simmediately, opacity fades in */
 }
+
+/* 
+https://stackoverflow.com/questions/3331353/transitions-on-the-css-display-property
+So, what's going on here?
+
+When form-overlay-vis class is added, both height and opacity 
+start animation without delay (0 ms), though height 
+takes 0 ms to complete animation 
+(equivalent of display: block) and opacity takes 600 ms.
+
+When form-overlay-vis class is removed, opacity starts 
+animation (0 ms delay, 400 ms duration), and height waits 
+400 ms and only then instantly (0 ms) restores initial value 
+(equivalent of display: none in the animation callback).
+*/
 
 .form-card {
   position: absolute;

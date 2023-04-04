@@ -154,5 +154,6 @@ addBtn.addEventListener('click', () => {
 sideForm.addEventListener('submit', (e) => {
   e.preventDefault(); // stops sumbit from sending data to server by default
   addBook(); // sends data to myLib[]
-  formOverlay.style.display = 'none'; // makes form dissapear on submit
+  formOverlay.classList.remove("form-overlay-vis");
+  // formOverlay.style.display = 'none'; // makes form dissapear on submit
 });
