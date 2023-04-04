@@ -72,10 +72,11 @@ function clickOut() {
     formOverlay.addEventListener('click', (e) => {
       // click listener on formOverlay
       const clickSpot = e.target; // make clickSpot = the event target
-      if (clickSpot.className === 'form-overlay') {
+      if (clickSpot.className === 'form-overlay-vis') {
         // if click happened on formOverlay, i.e. outisde of the form
         sideForm.reset(); // reset the form
-        formOverlay.style.display = 'none'; // hide it
+        formOverlay.classList.add('form-overlay'); // add hidden class
+        formOverlay.classList.remove('form-overlay-vis'); // remove visible class
       }
     });
   }
@@ -146,7 +147,8 @@ clickDelete();
 addBtn.addEventListener('click', () => {
   sideForm.reset(); // clears form inputs from previous submission
   formOverlay.style.display = 'flex'; // makes form appear
-  formOverlay.classList.add('form-overlay-vis');
+  formOverlay.classList.remove('form-overlay'); // removes hidden class
+  formOverlay.classList.add('form-overlay-vis'); // adds visible class
   clickOut();
 });
 
@@ -154,6 +156,7 @@ addBtn.addEventListener('click', () => {
 sideForm.addEventListener('submit', (e) => {
   e.preventDefault(); // stops sumbit from sending data to server by default
   addBook(); // sends data to myLib[]
-  formOverlay.classList.remove("form-overlay-vis");
-  // formOverlay.style.display = 'none'; // makes form dissapear on submit
+  formOverlay.classList.remove('form-overlay-vis'); // removes visible class
+  formOverlay.classList.add('form-overlay'); // adds hidden class
+  // makes form dissapear on submit
 });

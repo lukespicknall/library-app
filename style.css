@@ -35,7 +35,7 @@
   font-weight: 800;
   border-radius: 15px;
   margin: 10px;
-  transition: .1s;
+  transition: .2s ease-in-out;
 }
 
 .add-btn:hover {
@@ -107,8 +107,6 @@ td.delete-cell {
 /* This form-overlay transition code documented below it*/
 .form-overlay {
   position: absolute;
-  /* display: none; */
-  /* height: 100vh; */
   width: 100vw;
   justify-content: center;
   align-items: center;
@@ -123,10 +121,17 @@ td.delete-cell {
 }
 
 .form-overlay-vis {
+  position: absolute;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.329);
+  overflow: hidden;
+
     height: 100vh; /* bring height to 100vh */
     opacity: 1; /* set opacity to 0 (full) */
     transition: height 0ms 0ms, opacity 275ms 0ms; 
-  /* height change simmediately, opacity fades in */
+  /* height changes immediately, opacity fades in */
 }
 
 /* 
