@@ -77,6 +77,7 @@ function clickOut() {
         sideForm.reset(); // reset the form
         formOverlay.classList.add('form-overlay'); // add hidden class
         formOverlay.classList.remove('form-overlay-vis'); // remove visible class
+        addBtn.style.zIndex = '0'; // bring addBtn to nuetral z plane
       }
     });
   }
@@ -149,6 +150,8 @@ addBtn.addEventListener('click', () => {
   formOverlay.style.display = 'flex'; // makes form appear
   formOverlay.classList.remove('form-overlay'); // removes hidden class
   formOverlay.classList.add('form-overlay-vis'); // adds visible class
+  document.getElementById('book-title').focus();
+  addBtn.style.zIndex = '-1'; // set addBtn to background via z index
   clickOut();
 });
 
@@ -159,4 +162,5 @@ sideForm.addEventListener('submit', (e) => {
   formOverlay.classList.remove('form-overlay-vis'); // removes visible class
   formOverlay.classList.add('form-overlay'); // adds hidden class
   // makes form dissapear on submit
+  addBtn.style.zIndex = '0'; // bring addBtn to nuetral z plane
 });
