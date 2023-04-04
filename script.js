@@ -74,7 +74,6 @@ function clickOut() {
       const clickSpot = e.target; // make clickSpot = the event target
       if (clickSpot.className === 'form-overlay-vis') {
         // if click happened on formOverlay, i.e. outisde of the form
-        sideForm.reset(); // reset the form
         formOverlay.classList.add('form-overlay'); // add hidden class
         formOverlay.classList.remove('form-overlay-vis'); // remove visible class
         addBtn.style.zIndex = '0'; // bring addBtn to nuetral z plane
@@ -146,11 +145,11 @@ clickDelete();
 
 // calls form when +Add Book is clicked
 addBtn.addEventListener('click', () => {
-  sideForm.reset(); // clears form inputs from previous submission
+  sideForm.reset(); // reset the form
   formOverlay.style.display = 'flex'; // makes form appear
   formOverlay.classList.remove('form-overlay'); // removes hidden class
   formOverlay.classList.add('form-overlay-vis'); // adds visible class
-  document.getElementById('book-title').focus();
+  document.getElementById('book-title').focus(); // puts focus cursor on first input
   addBtn.style.zIndex = '-1'; // set addBtn to background via z index
   clickOut();
 });
@@ -163,4 +162,5 @@ sideForm.addEventListener('submit', (e) => {
   formOverlay.classList.add('form-overlay'); // adds hidden class
   // makes form dissapear on submit
   addBtn.style.zIndex = '0'; // bring addBtn to nuetral z plane
+  sideForm.reset(); // reset the form
 });
