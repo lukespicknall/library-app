@@ -3,16 +3,14 @@ const addBtn = document.querySelector('.add-btn');
 const sideForm = document.querySelector('.side-form');
 const formOverlay = document.querySelector('.form-overlay');
 
-class Book {
-  constructor(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-  }
+function Book(title, author, pages, read) {
+  this.title = title;
+  this.author = author;
+  this.pages = pages;
+  this.read = read;
 }
 
-const myLibary = Object.values(Book); // creates array of Book objects/values
+const myLibary = []; // creates array of Book objects/values
 
 // puts Book{} data from myLibrary[] into libTable
 function displayBook() {
