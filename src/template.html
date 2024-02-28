@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="main.js" defer></script>
+    <title>Library</title>
+  </head>
+  <body>
+    <!-- FORM -->
+    <div class="form-overlay">
+      <div class="form-card">
+        <form class="side-form" action="" method="post">
+          <div class="infield">
+            <label for="book-title">Title</label>
+            <input type="text" name="book-title" id="book-title" required minlength="1" title="What is the book's title?"/>
+          </div>
+          <div class="infield">
+            <label for="author-name">Author</label>
+            <input type="text" name="author-name" id="author-name" required minlength="1" title="Who is the author?"/>
+          </div>
+          <div class="infield">
+            <label for="page-count">Page Count</label>
+            <input type="text" name="page-count" id="page-count"  required pattern="\d+" title="How many pages? Must be a number."/>
+          </div>
+          <div class="infield-r">
+            <label for="have-read">Read?</label>
+            <div class="read-opt">
+              <div class="read-opt1">
+                <label for="read">Yes</label>
+                <input type="radio" name="have-read" id="read" value="yes" />
+              </div>
+              <div class="read-opt2">
+                <label for="not-read">No</label>
+                <input type="radio" name="have-read" id="not-read" value="no" checked/>
+              </div>
+            </div>
+          </div>
+          <div class="infield">
+            <input type="submit" name="submit" id="submit" value="Log it!" />
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="box">
+      <div class="head-logo"></div>
+      <!-- HEADER -->
+      <div class="header">
+        <button class="add-btn">+ Add Book</button>
+      </div>
+      <!-- LIBARY -->
+      <div class="library">
+        <table class="lib-table">
+          <thead class="head-row">
+            <th style="width: 40%">Title</th>
+            <th style="width: 30%">Author</th>
+            <th style="width: 12%">Pages</th>
+            <th style="width: 9%">Read?</th>
+            <th style="width: 9%">Delete</th>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

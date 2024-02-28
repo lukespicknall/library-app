@@ -1,3 +1,5 @@
+import './style.css';
+
 const tBody = document.querySelector('tbody');
 const addBtn = document.querySelector('.add-btn');
 const sideForm = document.querySelector('.side-form');
