@@ -1,4 +1,5 @@
 import './style.css';
+import Trash from './images/trash-can-outline.png';
 
 const tBody = document.querySelector('tbody');
 const addBtn = document.querySelector('.add-btn');
@@ -56,7 +57,7 @@ function displayBook() {
     const deleteBtn = document.createElement('button'); // create a button
     const deleteImg = document.createElement('img'); // create and img element
     deleteBtn.className = 'delete-btn'; // give button a class
-    deleteImg.src = 'images/trash-can-outline.png'; // set img source
+    deleteImg.src = Trash; // set img source
     deleteImg.className = 'delete-img'; // give img element a class
     deleteImg.setAttribute('data-id', [i]); // assign data-id that = object's array index
     deleteBtn.appendChild(deleteImg); // add image to button
